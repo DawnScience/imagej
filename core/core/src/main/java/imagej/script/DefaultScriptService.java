@@ -45,7 +45,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -54,8 +53,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.Future;
 
-import javax.script.ScriptContext;
-import javax.script.ScriptEngine;
 import javax.script.ScriptEngineFactory;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
@@ -198,16 +195,6 @@ public class DefaultScriptService extends
 	@Override
 	public boolean canHandleFile(final String fileName) {
 		return scriptLanguageIndex.canHandleFile(fileName);
-	}
-
-	@Override
-	public void initialize(final ScriptEngine engine, final String fileName,
-		final Writer writer, final Writer errorWriter)
-	{
-		engine.put(ScriptEngine.FILENAME, fileName);
-		final ScriptContext context = engine.getContext();
-		if (writer != null) context.setWriter(writer);
-		if (writer != null) context.setErrorWriter(errorWriter);
 	}
 
 	@Override

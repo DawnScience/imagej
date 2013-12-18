@@ -268,10 +268,6 @@ public interface ScriptService extends SingletonService<ScriptLanguage> {
 	boolean canHandleFile(String fileName);
 
 	/** TODO */
-	void initialize(ScriptEngine engine, String fileName, Writer writer,
-		Writer errorWriter);
-
-	/** TODO */
 	Class<?> lookupClass(String typeName) throws ScriptException;
 
 }
